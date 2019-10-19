@@ -286,7 +286,9 @@ public class SchedulePanel extends javax.swing.JPanel {
   }
 
   private LocalTime toLocalTime(int y) {
-    y -= 1;
+    if (y > 0) {
+      y -= 1;
+    }
     var hours = y / (CELL_HEIGHT - borderThickness);
     var minutes = (int) ((y % (CELL_HEIGHT - borderThickness)) * 60.0 / (CELL_HEIGHT - borderThickness));
     return LocalTime.of(hours, minutes);
@@ -410,10 +412,10 @@ public class SchedulePanel extends javax.swing.JPanel {
   }
 
   private void drawThickRectangle(Graphics2D g, int x, int y, int width, int height, int thickness) {
-    x = x + thickness / 2;
-    y = y + thickness / 2;
-    width = width - thickness;
-    height = height - thickness;
+    x += thickness / 2;
+    y += thickness / 2;
+    width -= thickness;
+    height -= thickness;
     g.drawRect(x, y, width, height);
   }
 
