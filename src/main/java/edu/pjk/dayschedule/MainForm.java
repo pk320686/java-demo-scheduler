@@ -31,11 +31,12 @@ public class MainForm extends javax.swing.JFrame {
 
     datePanel = new edu.pjk.dayschedule.DatePanel();
     scrollPane = new javax.swing.JScrollPane();
-    schedule = new SchedulePanel(() -> {
+    schedule = new edu.pjk.dayschedule.SchedulePanel(() -> {
       return new EditScheduleItemForm(this, true);
     });
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setTitle("Schedule");
     setBackground(new java.awt.Color(255, 255, 255));
 
     scrollPane.setBorder(null);
